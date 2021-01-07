@@ -1,0 +1,17 @@
+{
+  "name": "github-actions-workflow-runs-clasp",
+  "description": "GitHub Actions workflow runs monitoring with Google Apps Script.",
+  "repository": "https://github.com/horothesun/github-actions-workflow-runs-clasp",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "claspLogin": "clasp login",
+    "claspPush": "clasp push",
+    "claspOpen": "clasp open",
+    "injectConfigFromEnvVars": "./injectConfigFromEnvVars.sh $WORKFLOW_READ_TOKEN"
+  },
+  "devDependencies": {
+    "@google/clasp": "^2.3.0",
+    "jest": "^26.6.3"
+  }
+}
