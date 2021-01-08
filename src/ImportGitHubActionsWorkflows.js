@@ -1,4 +1,4 @@
-function getConfig() {
+function getConfigWorkflows() {
   return {
     'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
   }
@@ -41,4 +41,4 @@ function getConfig() {
 
 // console.log(IMPORTGITHUBACTIONSWORKFLOWS('horothesun', 'python-sample', 100))
 
-module.exports = { getConfig }
+module.exports = { getConfigWorkflows }
