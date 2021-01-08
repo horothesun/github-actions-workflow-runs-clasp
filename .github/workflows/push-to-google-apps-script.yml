@@ -11,18 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Cancel previous runs
-    #   uses: styfle/cancel-workflow-action@0.6.0
-    #   with:
-    #     access_token: ${{ github.token }}
-
     - uses: actions/checkout@v2
-
-    # - name: Cache node modules
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: '**/node_modules'
-    #     key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
     - name: Use defined Node.js
       uses: actions/setup-node@v1
@@ -45,12 +34,7 @@ jobs:
         client-secret: ${{ secrets.OAUTH2_CLIENT_SECRET }}
         refresh-token: ${{ secrets.OAUTH2_REFRESH_TOKEN }}
 
-    - name: Logs
+    - name: Push to Google Apps Scripts
       run: |
-        npm run claspLoginStatus
-        npm run claspStatus
-
-    # - name: Push to Google Apps Scripts
-    #   run: |
-    #     npm run updateConfigJson
-    #     npm run claspPush
+        npm run updateConfigJson
+        npm run claspPush
