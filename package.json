@@ -9,6 +9,7 @@
     "claspLoginStatus": "clasp login --status",
     "claspStatus": "clasp status",
     "claspPush": "clasp push",
+    "claspPushForce": "clasp push --force",
     "claspOpen": "clasp open",
     "updateConfigJson": "./updateConfigJson.sh $WORKFLOW_READ_TOKEN"
   },

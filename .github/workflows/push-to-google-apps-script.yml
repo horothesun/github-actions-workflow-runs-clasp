@@ -37,4 +37,4 @@ jobs:
     - name: Push to Google Apps Scripts
       run: |
         npm run updateConfigJson
-        npm run claspPush
+        npm run claspPushForce
