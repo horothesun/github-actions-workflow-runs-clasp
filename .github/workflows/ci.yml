@@ -26,10 +26,11 @@ jobs:
         path: '**/node_modules'
         key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
-    - name: Use Node.js 14.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 14.x
+    - name: Use defined Node.js
+      run: nvm use
+    #   uses: actions/setup-node@v1
+    #   with:
+    #     node-version: 14.x
 
     - name: Install dependencies
       run: npm install
