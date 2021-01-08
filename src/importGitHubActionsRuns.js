@@ -1,7 +1,5 @@
-function getConfigRuns() {
-  return {
-    'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
-  }
+let config = {
+  'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
 }
 
 function IMPORTGITHHUBACTIONSRUNS(owner, repo, workflowId, perPage, ignoredArg) {
@@ -21,7 +19,7 @@ function runsUrl(owner, repo, workflowId, perPage) {
 function fetchRuns(url) {
   let headers = {
     'Accept': 'application/vnd.github.v3+json',
-    'Authorization': `token ${getConfig().workflow_read_token}`
+    'Authorization': `token ${config.workflow_read_token}`
   }
   let response = UrlFetchApp.fetch(url, { headers: headers })
   let content = response.getContentText()
@@ -42,4 +40,4 @@ function runsTable(runs) {
 
 // console.log(IMPORTGITHHUBACTIONSRUNS('horothesun', 'python-sample', '4436184', 100, 'ignoredValue'))
 
-module.exports = { getConfigRuns }
+module.exports = { config }
