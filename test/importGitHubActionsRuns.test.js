@@ -1,5 +1,5 @@
-const { config } = require('../src/importGitHubActionsRuns')
+const { getConfig } = require('../src/importGitHubActionsRuns.js')
 
-test('config has placeholder values', () => {
-  expect(config.workflow_read_token).toBe('WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY')
+test('getConfig() has placeholder values', () => {
+  expect(getConfig().workflow_read_token).toBe('WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY')
 })
