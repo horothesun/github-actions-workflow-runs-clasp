@@ -11,7 +11,7 @@
     "claspPush": "clasp push",
     "claspPushForce": "clasp push --force",
     "claspOpen": "clasp open",
-    "updateConfigJson": "./updateConfigJson.sh $WORKFLOW_READ_TOKEN"
+    "setupConfig": "./setupConfig.sh $WORKFLOW_READ_TOKEN"
   },
   "devDependencies": {
     "@google/clasp": "^2.3.0",

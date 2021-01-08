@@ -1,4 +1,6 @@
-const { loadConfig } = require('./loadConfig')
+let config = {
+  'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
+}
 
 function IMPORTGITHUBACTIONSWORKFLOWS(owner, repo, perPage) {
   try {
@@ -15,10 +17,9 @@ function workflowsUrl(owner, repo, perPage) {
 }
 
 function fetchWorkflows(url) {
-  let workflowReadToken = loadConfig().workflow_read_token
   let headers = {
     'Accept': 'application/vnd.github.v3+json',
-    'Authorization': `token ${workflowReadToken}`
+    'Authorization': `token ${config.workflow_read_token}`
   }
   let response = UrlFetchApp.fetch(url, { headers: headers })
   let content = response.getContentText()
@@ -37,3 +38,5 @@ function workflowsTable(workflows) {
 }
 
 // console.log(IMPORTGITHUBACTIONSWORKFLOWS('horothesun', 'python-sample', 100))
+
+module.exports = { config }
