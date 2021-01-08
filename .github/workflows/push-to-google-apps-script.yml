@@ -1,0 +1,56 @@
+name: Push to Google Apps Script
+
+on:
+  release:
+    types: [ created ]
+  workflow_dispatch: # enable manual execution
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # - name: Cancel previous runs
+    #   uses: styfle/cancel-workflow-action@0.6.0
+    #   with:
+    #     access_token: ${{ github.token }}
+
+    - uses: actions/checkout@v2
+
+    # - name: Cache node modules
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: '**/node_modules'
+    #     key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Use defined Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm build
+
+    - name: Run tests
+      run: npm test
+
+    - name: Google Apps Script login
+      uses: namaggarwal/clasp-token-action@v0.0.1
+      with:
+        client-id: ${{ secrets.OAUTH2_CLIENT_ID }}
+        client-secret: ${{ secrets.OAUTH2_CLIENT_SECRET }}
+        refresh-token: ${{ secrets.OAUTH2_REFRESH_TOKEN }}
+
+    - name: Logs
+      run: |
+        npm run claspLoginStatus
+        npm run claspStatus
+
+    # - name: Push to Google Apps Scripts
+    #   run: |
+    #     npm run updateConfigJson
+    #     npm run claspPush

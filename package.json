@@ -6,9 +6,11 @@
   "scripts": {
     "test": "jest",
     "claspLogin": "clasp login",
+    "claspLoginStatus": "clasp login --status",
+    "claspStatus": "clasp status",
     "claspPush": "clasp push",
     "claspOpen": "clasp open",
-    "injectConfigFromEnvVars": "./injectConfigFromEnvVars.sh $WORKFLOW_READ_TOKEN"
+    "updateConfigJson": "./updateConfigJson.sh $WORKFLOW_READ_TOKEN"
   },
   "devDependencies": {
     "@google/clasp": "^2.3.0",
