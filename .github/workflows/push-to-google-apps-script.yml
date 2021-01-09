@@ -36,6 +36,6 @@ jobs:
 
     - name: Push to Google Apps Scripts
       run: |
-        ./setupConfig.sh ${{ secrets.WORKFLOW_READ_TOKEN }}
-        ./removeModuleExports.sh
+        ./scripts/setupConfig.sh ${{ secrets.WORKFLOW_READ_TOKEN }}
+        ./scripts/removeModuleExports.sh
         npm run claspPush
