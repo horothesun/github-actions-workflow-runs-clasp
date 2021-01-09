@@ -1,8 +1,9 @@
-(
-  cd src
+ex src/importGitHubActionsWorkflows.js << EOEX
+%s/WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY/$1/
+wq
+EOEX
 
-  sed -i .bak "s/WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY/$1/" importGitHubActionsWorkflows.js
-  sed -i .bak "s/WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY/$1/" importGitHubActionsRuns.js
-
-  rm *.bak
-)
+ex src/importGitHubActionsRuns.js << EOEX
+%s/WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY/$1/
+wq
+EOEX
