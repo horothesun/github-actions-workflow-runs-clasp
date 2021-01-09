@@ -32,5 +32,3 @@ function workflowsTable(workflows) {
   }
   return rows
 }
-
-// console.log(IMPORTGITHUBACTIONSWORKFLOWS('horothesun', 'python-sample', 100))

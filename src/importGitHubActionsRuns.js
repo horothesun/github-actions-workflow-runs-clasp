@@ -33,5 +33,3 @@ function runsTable(runs) {
   }
   return rows
 }
-
-// console.log(IMPORTGITHHUBACTIONSRUNS('horothesun', 'python-sample', '4436184', 100, 'ignoredValue'))
