@@ -1,7 +1,3 @@
-let config = {
-  'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
-}
-
 function IMPORTGITHHUBACTIONSRUNS(owner, repo, workflowId, perPage, ignoredArg) {
   try {
     let url = runsUrl(owner, repo, workflowId, perPage)
@@ -39,5 +35,3 @@ function runsTable(runs) {
 }
 
 // console.log(IMPORTGITHHUBACTIONSRUNS('horothesun', 'python-sample', '4436184', 100, 'ignoredValue'))
-
-module.exports = { config }

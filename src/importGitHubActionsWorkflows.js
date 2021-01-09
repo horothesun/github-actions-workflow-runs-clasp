@@ -1,7 +1,3 @@
-let config = {
-  'workflow_read_token': 'WORKFLOW_READ_TOKEN - DO NOT SPECIFY - POPULATED AUTOMATICALLY'
-}
-
 function IMPORTGITHUBACTIONSWORKFLOWS(owner, repo, perPage) {
   try {
     let url = workflowsUrl(owner, repo, perPage)
@@ -38,5 +34,3 @@ function workflowsTable(workflows) {
 }
 
 // console.log(IMPORTGITHUBACTIONSWORKFLOWS('horothesun', 'python-sample', 100))
-
-module.exports = { config }
