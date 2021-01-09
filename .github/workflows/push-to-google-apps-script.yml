@@ -34,8 +34,11 @@ jobs:
         client-secret: ${{ secrets.OAUTH2_CLIENT_SECRET }}
         refresh-token: ${{ secrets.OAUTH2_REFRESH_TOKEN }}
 
+    - name: Setup config.js
+      run: ./scripts/setupConfig.sh ${{ secrets.WORKFLOW_READ_TOKEN }}
+
+    - name: Remove all module.exports
+      run: ./scripts/removeModuleExportsLineFromAllJSFiles.sh
+
     - name: Push to Google Apps Scripts
-      run: |
-        ./scripts/setupConfig.sh ${{ secrets.WORKFLOW_READ_TOKEN }}
-        ./scripts/removeModuleExports.sh
-        npm run claspPush
+      run: npm run claspPush
