@@ -1,0 +1,53 @@
+name: Deploy to Google Apps Script
+
+on:
+  release:
+    types: [ published ]
+  # workflow_dispatch: # enable manual execution
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use defined Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run tests
+      run: npm test
+
+    - name: Google Apps Script login
+      uses: namaggarwal/clasp-token-action@v0.0.1
+      with:
+        client-id: ${{ secrets.OAUTH2_CLIENT_ID }}
+        client-secret: ${{ secrets.OAUTH2_CLIENT_SECRET }}
+        refresh-token: ${{ secrets.OAUTH2_REFRESH_TOKEN }}
+
+    - name: Setup config.js
+      run: ./scripts/setupConfig.sh ${{ secrets.WORKFLOW_READ_TOKEN }}
+
+    - name: Remove all module.exports
+      run: ./scripts/removeModuleExportsLineFromAllJSFiles.sh
+
+    - name: Pre-deployment list of deployments
+      run: npm run claspDeployments
+
+    - name: Echo tag_name
+      run: echo ${{ github.event.release.tag_name }}
+
+    # - name: Push to Google Apps Scripts
+    #   run: npm run claspPush
+
+    # - name: Deploy to Google Apps Scripts
+    #   run: npm run claspDeployWithDescription ${{ github.event.release.tag_name }}
+
+    - name: Post-deployment list of deployments
+      run: npm run claspDeployments

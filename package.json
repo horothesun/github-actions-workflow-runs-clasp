@@ -11,6 +11,8 @@
     "claspStatus": "clasp status",
     "claspPush": "clasp push",
     "claspPushForce": "clasp push --force",
+    "claspDeployWithDescription": "clasp deploy --description ",
+    "claspDeployments": "clasp deployments",
     "claspOpen": "clasp open"
   },
   "devDependencies": {
