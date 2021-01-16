@@ -1,8 +1,6 @@
 name: Push to Google Apps Script
 
 on:
-  release:
-    types: [ created ]
   workflow_dispatch: # enable manual execution
 
 jobs:
