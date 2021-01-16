@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "testWatch": "jest --watch",
     "claspLogin": "clasp login",
     "claspLoginStatus": "clasp login --status",
     "claspStatus": "clasp status",
