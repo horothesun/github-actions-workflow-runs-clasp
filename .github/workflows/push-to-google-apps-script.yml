@@ -36,4 +36,4 @@ jobs:
       run: ./scripts/removeModuleExportsLineFromAllJSFiles.sh
 
     - name: Push to Google Apps Scripts
-      run: npm run claspPushForce
+      run: npm run claspPush
