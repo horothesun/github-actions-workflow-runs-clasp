@@ -8,6 +8,6 @@ function deleteAllTriggers() {
 }
 
 function createTriggers() {
-  const minutes = 10
+  const minutes = config.updateCellMinutes
   ScriptApp.newTrigger('updateRunsConfigC2Cell').timeBased().everyMinutes(minutes).create()
 }
